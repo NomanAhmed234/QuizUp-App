@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:project1/home.dart';
 import 'package:project1/login.dart';
+import 'package:project1/setting.dart';
 import 'package:project1/signup.dart';
 
 void main() {
   runApp(MaterialApp(
     initialRoute: '/', // Define your initial route
     routes: {
-      '/': (context) => Home(), // Define home screen route
+      '/': (context) => Login(), // Define home screen route
       '/login': (context) => Login(),
       '/signup': (context) => Signup(),
       '/home': (context) => Home(),
+      '/setting': (context) => Setting(),
     },
   ));
 }

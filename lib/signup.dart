@@ -164,7 +164,9 @@ class Signup extends StatelessWidget {
                           child: Column(children: [
                             ElevatedButton(
                                 autofocus: false,
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/login');
+                                },
                                 child: Padding(
                                   padding: const EdgeInsets.only(
                                       left: 40, right: 40, top: 10, bottom: 10),
