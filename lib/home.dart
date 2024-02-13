@@ -8,6 +8,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   final item = List<String>.generate(30, (i) => "Item $i");
   final List<String> category = [
     "Science",
@@ -64,308 +72,342 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.grey.shade100,
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 5,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 10,
-                      ),
-                      CircleAvatar(
-                        backgroundColor: Color(0xFF98745E),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        height: 35,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Hello Noman Ahmed",
-                              style: TextStyle(
-                                  color: Color(0xFF03045E),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              "Let's play!",
-                              style: TextStyle(
-                                color: Color(0xFF00b4d8),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Row(children: [
-                    Card(
-                      elevation: 5,
-                      color: Color(0xFF03045E),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Icon(
-                          Icons.dashboard,
-                          color: Colors.white,
-                        ),
-                      ),
+        home: Scaffold(
+      backgroundColor: Colors.grey.shade100,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: 5,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 10,
                     ),
-                    Card(
-                      elevation: 5,
-                      color: Color(0xFF03045E),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Icon(
-                          Icons.settings,
-                          color: Colors.white,
-                        ),
-                      ),
+                    CircleAvatar(
+                      backgroundColor: Color(0xFF98745E),
                     ),
                     SizedBox(
                       width: 10,
                     ),
-                  ]),
-                )
-              ],
-            ),
-            Container(
-              width: double.infinity,
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 10,
+                    Container(
+                      height: 35,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Hello Noman Ahmed",
+                            style: TextStyle(
+                                color: Color(0xFF03045E),
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "Let's play!",
+                            style: TextStyle(
+                              color: Color(0xFF00b4d8),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                child: Row(children: [
+                  Card(
+                    elevation: 5,
+                    color: Color(0xFF03045E),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Icon(
+                        Icons.dashboard,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
-                  Expanded(
-                    child: Card(
-                      elevation: 10,
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 15),
-                                  child: Text(
-                                    "Score",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(bottom: 15),
-                                  child: Text(
-                                    "90",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Icon(
-                              Icons.straight_outlined,
-                              color: Color(0xFF00b4d8),
-                            ),
-                            Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 15),
-                                  child: Text(
-                                    "Score",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(bottom: 15),
-                                  child: Text(
-                                    "90",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Icon(
-                              Icons.straight_outlined,
-                              color: Color(0xFF00b4d8),
-                            ),
-                            Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 15),
-                                  child: Text(
-                                    "Score",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(bottom: 15),
-                                  child: Text(
-                                    "90",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ]),
-                      color: Color(0xFF03045E),
+                  Card(
+                    elevation: 5,
+                    color: Color(0xFF03045E),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Icon(
+                        Icons.settings,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   SizedBox(
                     width: 10,
                   ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, top: 5),
-              child: Text(
-                "Categories",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xFF03045E)),
-              ),
-            ),
-            // ListView.custom(childrenDelegate:
-            //     SliverChildBuilderDelegate((BuildContext context, int index) {
-            //   return Card(
-            //     color: Colors.amber,
-            //     child: Column(children: [
-            //       Row(
-            //         children: [
-            //           Text(item[index]),
-            //           Icon(Icons.person),
-            //         ],
-            //       ),
-            //       Row(
-            //         children: [
-            //           Text("Questions:$index"),
-            //           Text("Checked"),
-            //         ],
-            //       )
-            //     ]),
-            //   );
-            // }))
-            Container(
-              height: 100,
-              child: ListView.custom(
-                  scrollDirection: Axis.horizontal,
-                  childrenDelegate: SliverChildBuilderDelegate(
-                      (BuildContext context, int index) {
-                    return GestureDetector(
-                      onTap: () {
-                        print("pressed on ${category[index]}");
-                      },
-                      child: Card(
-                        elevation: 5,
-                        shadowColor: Color(0xFF0077b6),
-                        color: Colors.white,
-                        child: Column(children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  category[index],
+                ]),
+              )
+            ],
+          ),
+          Container(
+            width: double.infinity,
+            child: Row(
+              children: [
+                SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                  child: Card(
+                    elevation: 10,
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 15),
+                                child: Text(
+                                  "Score",
                                   style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0xFF03045E)),
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                  ),
                                 ),
-                                Icon(
-                                  Icons.person,
-                                  color: Color(0xFF0077b6),
-                                  size: 30,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 15),
+                                child: Text(
+                                  "90",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                  ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Questions:${index + 1}",
+                          Icon(
+                            Icons.straight_outlined,
+                            color: Color(0xFF00b4d8),
+                          ),
+                          Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 15),
+                                child: Text(
+                                  "Score",
                                   style: TextStyle(
-                                      color: Colors.grey.shade600,
-                                      fontSize: 10),
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                  ),
                                 ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  "Checked",
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 15),
+                                child: Text(
+                                  "90",
                                   style: TextStyle(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0xFF0077b6)),
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                  ),
                                 ),
-                              ],
-                            ),
-                          )
+                              ),
+                            ],
+                          ),
+                          Icon(
+                            Icons.straight_outlined,
+                            color: Color(0xFF00b4d8),
+                          ),
+                          Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 15),
+                                child: Text(
+                                  "Score",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 15),
+                                child: Text(
+                                  "90",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ]),
-                      ),
-                    );
-                  })),
+                    color: Color(0xFF03045E),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+              ],
             ),
-          ],
-        ),
-        bottomNavigationBar: NavigationBar(
-          onDestinationSelected: (int index) {
-            print('Selected $index');
-          },
-          selectedIndex: 0,
-          destinations: const <NavigationDestination>[
-            NavigationDestination(
-              selectedIcon: Icon(Icons.person),
-              icon: Icon(Icons.person_outline),
-              label: 'Learn',
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 10, top: 5),
+            child: Text(
+              "Categories",
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xFF03045E)),
             ),
-            NavigationDestination(
-              selectedIcon: Icon(Icons.engineering),
-              icon: Icon(Icons.engineering_outlined),
-              label: 'Relearn',
-            ),
-            NavigationDestination(
-              selectedIcon: Icon(Icons.bookmark),
-              icon: Icon(Icons.bookmark_border),
-              label: 'Unlearn',
-            ),
-          ],
-        ),
+          ),
+          // ListView.custom(childrenDelegate:
+          //     SliverChildBuilderDelegate((BuildContext context, int index) {
+          //   return Card(
+          //     color: Colors.amber,
+          //     child: Column(children: [
+          //       Row(
+          //         children: [
+          //           Text(item[index]),
+          //           Icon(Icons.person),
+          //         ],
+          //       ),
+          //       Row(
+          //         children: [
+          //           Text("Questions:$index"),
+          //           Text("Checked"),
+          //         ],
+          //       )
+          //     ]),
+          //   );
+          // }))
+          Container(
+            height: 100,
+            child: ListView.custom(
+                scrollDirection: Axis.horizontal,
+                childrenDelegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                  return GestureDetector(
+                    onTap: () {
+                      print("pressed on ${category[index]}");
+                    },
+                    child: Card(
+                      elevation: 5,
+                      shadowColor: Color(0xFF0077b6),
+                      color: Colors.white,
+                      child: Column(children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                category[index],
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFF03045E)),
+                              ),
+                              Icon(
+                                Icons.person,
+                                color: Color(0xFF0077b6),
+                                size: 30,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Questions:${index + 1}",
+                                style: TextStyle(
+                                    color: Colors.grey.shade600, fontSize: 10),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                "Checked",
+                                style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFF0077b6)),
+                              ),
+                            ],
+                          ),
+                        )
+                      ]),
+                    ),
+                  );
+                })),
+          ),
+        ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.new_releases),
+            label: 'Latest',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.book),
+            label: 'Courses',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue,
+        onTap: _onItemTapped,
+      ),
+    ));
+  }
+
+  Widget _buildPage(int index) {
+    switch (index) {
+      case 0:
+        return HomeScreen();
+      case 1:
+        return LatestScreen();
+      case 2:
+        return CoursesScreen();
+      default:
+        return Container();
+    }
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Home Screen'),
+    );
+  }
+}
+
+class LatestScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Latest Screen'),
+    );
+  }
+}
+
+class CoursesScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Courses Screen'),
     );
   }
 }
