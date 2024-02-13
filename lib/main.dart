@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project1/home.dart';
 import 'package:project1/login.dart';
+import 'package:project1/quizQuestionScreen.dart';
 import 'package:project1/setting.dart';
 import 'package:project1/signup.dart';
 
@@ -13,6 +14,7 @@ void main() {
       '/signup': (context) => Signup(),
       '/home': (context) => Home(),
       '/setting': (context) => Setting(),
+      '/quizQuestionScreen': (context) => quizQuestionScreen(),
     },
   ));
 }

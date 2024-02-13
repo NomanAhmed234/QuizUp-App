@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -15,6 +16,30 @@ class _HomeState extends State<Home> {
       _selectedIndex = index;
     });
   }
+
+  final itemForTopics = List<String>.generate(4, (index) => "Item $index");
+  final String name1 = 'study1.json';
+  final String name2 = 'knowledge_boost.json';
+  final String name3 = 'experience.json';
+  final String name4 = 'fun.json';
+  final String name5 = 'insightful.json';
+  final String name6 = 'twitter.json';
+  final String name7 = 'start.json';
+  final List<String> topicsImages = [];
+  final List<String> topics = [
+    "Active Learning",
+    "Knowledge Boost",
+    "Tailored Experience",
+    "Fun Learning",
+    "Insightful Analytics"
+  ];
+  final List<String> subTopics = [
+    "Engage users actively with interactive quizzes, keeping them involved and interested in the learning process.",
+    " Provide educational content that helps users learn new information and reinforce existing knowledge.",
+    "Customize quizzes based on user performance, ensuring each user gets a personalized learning journey.",
+    "Incorporate game-like elements to make learning enjoyable, motivating users to participate and progress.",
+    "Gain valuable insights into user behavior and learning patterns, enabling continuous improvement and optimization of the app."
+  ];
 
   final item = List<String>.generate(30, (i) => "Item $i");
   final List<String> category = [
@@ -264,26 +289,6 @@ class _HomeState extends State<Home> {
                   color: Color(0xFF03045E)),
             ),
           ),
-          // ListView.custom(childrenDelegate:
-          //     SliverChildBuilderDelegate((BuildContext context, int index) {
-          //   return Card(
-          //     color: Colors.amber,
-          //     child: Column(children: [
-          //       Row(
-          //         children: [
-          //           Text(item[index]),
-          //           Icon(Icons.person),
-          //         ],
-          //       ),
-          //       Row(
-          //         children: [
-          //           Text("Questions:$index"),
-          //           Text("Checked"),
-          //         ],
-          //       )
-          //     ]),
-          //   );
-          // }))
           Container(
             height: 100,
             child: ListView.custom(
@@ -294,6 +299,7 @@ class _HomeState extends State<Home> {
                     onTap: () {
                       print("pressed on ${category[index]}");
                     },
+                    
                     child: Card(
                       elevation: 5,
                       shadowColor: Color(0xFF0077b6),
@@ -311,10 +317,15 @@ class _HomeState extends State<Home> {
                                     fontWeight: FontWeight.bold,
                                     color: Color(0xFF03045E)),
                               ),
-                              Icon(
-                                Icons.person,
-                                color: Color(0xFF0077b6),
-                                size: 30,
+                              SizedBox(
+                                height: 40,
+                                width: 40,
+                                child: Lottie.asset(
+                                  'animations/$name5', // Replace 'your_animation.json' with your animation file path
+                                  height: 10, // Adjust the height as needed
+                                  width: 10, // Adjust the width as needed
+                                  fit: BoxFit.cover, // Adjust the fit as needed
+                                ),
                               ),
                             ],
                           ),
@@ -347,6 +358,73 @@ class _HomeState extends State<Home> {
                   );
                 })),
           ),
+          // Lottie.asset(
+          //   'animations/study1.json', // Replace 'your_animation.json' with your animation file path
+          //   height: 100, // Adjust the height as needed
+          //   width: 100, // Adjust the width as needed
+          //   fit: BoxFit.cover, // Adjust the fit as needed
+          // ),
+          Expanded(
+            child: ListView.custom(
+                childrenDelegate: SliverChildBuilderDelegate((context, index) {
+              return Padding(
+                padding: const EdgeInsets.only(left: 40, right: 40),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(
+                        context, '/login'); // Navigate to Screen2
+                  },
+                  child: Card(
+                    elevation: 20,
+                    color: Color(0xFF03045E),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Column(
+                            children: [
+                              Text(
+                                "${topics[index]}",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w800,
+                                    color: Colors.white),
+                              ),
+                              SizedBox(
+                                width: 200,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    subTopics[index],
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Card(
+                              color: Colors.white,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Lottie.asset(
+                                  'animations/study1.json', // Replace 'your_animation.json' with your animation file path
+                                  height: 100, // Adjust the height as needed
+                                  width: 100, // Adjust the width as needed
+                                  fit: BoxFit.cover, // Adjust the fit as needed
+                                ),
+                              ),
+                            ),
+                          ),
+                        ]),
+                  ),
+                ),
+              );
+            })),
+          )
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -365,7 +443,7 @@ class _HomeState extends State<Home> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Color(0xFF03045E),
         onTap: _onItemTapped,
       ),
     ));
