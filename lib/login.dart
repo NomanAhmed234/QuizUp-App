@@ -1,5 +1,5 @@
 import 'dart:html';
-
+import 'dart:ui_web';
 import 'package:flutter/material.dart';
 import 'package:project1/login.dart';
 import 'main.dart';
@@ -16,7 +16,7 @@ class Login extends StatelessWidget {
       home: DefaultTabController(
         length: 2, // Set the number of tabs
         child: Scaffold(
-          backgroundColor: Color(0xFF03045E),
+          backgroundColor: Color.fromARGB(255, 5, 7, 93),
           // appBar: AppBar(
           //   title: Text('Search Tabs Example'),
           // ),

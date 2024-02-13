@@ -8,7 +8,7 @@ void main() {
   runApp(MaterialApp(
     initialRoute: '/', // Define your initial route
     routes: {
-      '/': (context) => Login(), // Define home screen route
+      '/': (context) => MyApp(), // Define home screen route
       '/login': (context) => Login(),
       '/signup': (context) => Signup(),
       '/home': (context) => Home(),

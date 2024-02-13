@@ -342,6 +342,29 @@ class _HomeState extends State<Home> {
             ),
           ],
         ),
+        bottomNavigationBar: NavigationBar(
+          onDestinationSelected: (int index) {
+            print('Selected $index');
+          },
+          selectedIndex: 0,
+          destinations: const <NavigationDestination>[
+            NavigationDestination(
+              selectedIcon: Icon(Icons.person),
+              icon: Icon(Icons.person_outline),
+              label: 'Learn',
+            ),
+            NavigationDestination(
+              selectedIcon: Icon(Icons.engineering),
+              icon: Icon(Icons.engineering_outlined),
+              label: 'Relearn',
+            ),
+            NavigationDestination(
+              selectedIcon: Icon(Icons.bookmark),
+              icon: Icon(Icons.bookmark_border),
+              label: 'Unlearn',
+            ),
+          ],
+        ),
       ),
     );
   }
