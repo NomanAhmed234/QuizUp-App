@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:project1/quizQuestionScreen.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -295,11 +296,15 @@ class _HomeState extends State<Home> {
                 scrollDirection: Axis.horizontal,
                 childrenDelegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
-                  return GestureDetector(
+                  return InkWell(
                     onTap: () {
-                      print("pressed on ${category[index]}");
+                      // Navigate to quizQuestion Screen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => quizQuestionScreen()),
+                      );
                     },
-                    
                     child: Card(
                       elevation: 5,
                       shadowColor: Color(0xFF0077b6),
@@ -371,8 +376,12 @@ class _HomeState extends State<Home> {
                 padding: const EdgeInsets.only(left: 40, right: 40),
                 child: InkWell(
                   onTap: () {
-                    Navigator.pushNamed(
-                        context, '/login'); // Navigate to Screen2
+                    // Navigate to quizQuestion Screen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => quizQuestionScreen()),
+                    );
                   },
                   child: Card(
                     elevation: 20,
@@ -381,6 +390,7 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 "${topics[index]}",
@@ -392,7 +402,8 @@ class _HomeState extends State<Home> {
                               SizedBox(
                                 width: 200,
                                 child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: const EdgeInsets.only(
+                                      right: 10, bottom: 10, top: 10),
                                   child: Text(
                                     subTopics[index],
                                     style: TextStyle(
@@ -401,7 +412,21 @@ class _HomeState extends State<Home> {
                                         color: Colors.white),
                                   ),
                                 ),
-                              )
+                              ),
+                              ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      //0xFF00b4d8       0xFF0077b6
+                                      backgroundColor: Color(0xFF00b4d8)),
+                                  onPressed: () {},
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(1.0),
+                                    child: Text(
+                                      "Show",
+                                      style: TextStyle(
+                                          color: Color(0xFF03045E),
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                  ))
                             ],
                           ),
                           Padding(
